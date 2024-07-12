@@ -3,7 +3,9 @@ from .models import Project, Tag
 
 # Create your views here.
 def home(request):
-    return render(request, "home.html")
+    projects = Project.objects.all()
+    tags = Tag.objects.all()
+    return render(request, "home.html", {"projects": projects, "tags": tags })
 
 def contact(request):
     return render(request, "contact.html")
